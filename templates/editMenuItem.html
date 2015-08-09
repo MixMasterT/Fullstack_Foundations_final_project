@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="Restaurant Mall" />
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='restaurantStyles.css')}}">
+   </head>
+   <body>
+      <div id="navBar">
+         <p><a href="/">home</a></p>
+         <p><a href="about.html">about</a></p>
+         <p><a href="donate.html">support</a></p>
+      </div>
+      <div id="contentWrapper">
+         <p class="identify">Fill in the form, and click 'submit' to edit the details for the item <span class="emphasis">{{item.name}}</span> at {{restaurant.name}}.</p>
+
+         <div class="form">
+            <form action="{{ url_for('editMenuItem', menu_item_id = item.id)}}" method='POST'>
+               <p class="menuItem">Enter the Item's new name: <input type="text" name="item_name" value="{{item.name}}" /></p>
+               <p class="menuItem">course: <input type="text" name="item_course" value="{{item.course}}" /></p>
+               <p class="menuItem">price: <input type="text" name="item_price" value="{{item.price}}" /></p>
+               <p class="menuItem">description: <input type="textarea" name="item_description" value="{{item.description}}" /></p>
+               <br /><br />
+               <input type="submit" value="update item" />
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

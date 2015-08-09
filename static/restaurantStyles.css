@@ -1,0 +1,88 @@
+body {
+   margin: 0;
+   padding: 0;
+   background-image: url('/static/images/tableCloth.jpg');
+   text-align: center;
+}
+#navBar {
+   background-color:#FFEEEE;
+   width:820px;
+   border-bottom:5px white solid;
+   margin: 0 auto;
+   height:100px;
+   font-size: 150%;
+}
+#navBar p{
+   position:relative;
+   top:45px;
+   padding-left:100px;
+   height:40px;
+   float:left;
+   bakground-color:#DDDDDD;
+}
+#navBar a{
+   color:#221111;
+   text-decoration: none;
+}
+#navBar a:visited {
+   color:#669999;
+}
+#contentWrapper {
+   background-color: #221111;
+   padding:1px;
+   color: white;
+   width: 820px;
+   margin: 0 auto;
+}
+
+#contentWrapper a {
+   color:yellow;
+   text-decoration:none;
+}
+.identify {
+   padding: 12px;
+   background-color: #666666;
+   width: 80%;
+   vertical-align: center;
+   display:inline-block;
+}
+.menuItem {
+   margin: 10px;
+   padding: 12px 0 12px 0;
+   background-color:#533;
+   width: 80%;
+   display: inline-block;
+   border-radius: 20%;
+}
+.viewMenu {
+   font-size:140%;
+}
+.phone {
+   float:left;
+   background-color: #666;
+   padding:10px;
+   margin:15px;
+   position: relative;
+   top: -40px;
+   border-radius:25%;
+}
+.address {
+   float:right;
+   background-color: #666;
+   padding:10px;
+   margin:15px;
+   position: relative;
+   top: -40px;
+      border-radius:25%;
+}
+.emphasis {
+   font-size: 120%;
+   color:#FEE;
+   text-decoration: underline;
+}
+.flash {
+   padding:10px;
+   background-color:orange;
+   width:60%;
+   display: inline-block;
+}

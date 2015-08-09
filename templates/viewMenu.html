@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="Restaurant Mall" />
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='restaurantStyles.css')}}">
+   </head>
+   </head>
+   <body>
+      <div id="navBar">
+         <p><a href="/">home</a></p>
+         <p><a href="about.html">about</a></p>
+         <p><a href="donate.html">support</a></p>
+      </div>
+      <div id="contentWrapper">
+         {% with messages = get_flashed_messages() %}
+            {% if messages %}
+               <ul class="flash">
+                  {% for message in messages %}
+                     <li><strong>{{ message }}</strong></li>
+                  {% endfor %}
+               </ul>
+            {% endif %}
+         {% endwith %}
+         <div class="identify">
+            <p>Here is the menu for {{restaurant.name}}:</p>
+         </div>
+         {% for i in items %}
+         <div class="menuItem">
+            <h3>{{i.name}}</h3>
+            <p>
+               <span style="float:right">{{i.price}}</span>
+               {{i.description}}
+            </p>
+            <p>
+               <a href="{{url_for('editMenuItem', menu_item_id = i.id)}}">edit</a>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <a href="{{url_for('deleteMenuItem', menu_item_id = i.id)}}">delete</a>
+            </p>
+            <br />
+         </div>
+
+         {% endfor %}
+         <br />
+         <a href="{{url_for('addMenuItem', restaurant_id = restaurant.id)}}">-Add a new Item to this menu-</a>
+      </div>
+   </body>
+</html>

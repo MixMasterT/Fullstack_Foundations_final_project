@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="Restaurant Mall" />
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='restaurantStyles.css')}}">
+   </head>
+   <body>
+      <div id="navBar">
+         <p><a href="/">home</a></p>
+         <p><a href="about.html">about</a></p>
+         <p><a href="donate.html">support</a></p>
+      </div>
+      <div id="contentWrapper">
+         <p class="identify">Fill in the form, and click 'submit' to edit the details for the item <span class="emphasis">{{item.name}}</span> at {{restaurant.name}}.</p>
+
+         <div class="form">
+            <form action="{{ url_for('deleteMenuItem', menu_item_id = item.id)}}" method='POST'>
+               <p class="menuItem">Are you sure you want to delete <span class="emphasis">{{item.name}}</span> from our record of items at {{restaurant.name}}?
+                  <br/><br/><input type="submit" value="delete item" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{url_for('viewMenu', restaurant_id = restaurant.id)}}">cancel</a>
+               </p>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

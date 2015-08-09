@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="Restaurant Mall" />
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='restaurantStyles.css')}}">
+   </head>
+   <body>
+      <div id="navBar">
+         <p><a href="/">home</a></p>
+         <p><a href="about.html">about</a></p>
+         <p><a href="donate.html">support</a></p>
+      </div>
+      <div id="contentWrapper">
+         <p class="identify">Fill in the form, and click 'submit' to add a new restuarant to our database.</p>
+
+         <div class="form">
+            <form action="{{ url_for('addRestaurant')}}" method='POST'>
+               <p class="menuItem">Enter the Restaurant's name: <input type="text" name="restaurant_name" placeholder="restaurant's name" /></p>
+               <p class="menuItem">Restaurant's address: <input type="text" name="restaurant_address" placeholder="restaurant's address" /></p>
+               <p class="menuItem">Restaurant's telephone number: <input type="tel" name="restaurant_phone" placeholder="restaurant's address" /></p>
+               <br/><input type="submit" value="submit" />
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

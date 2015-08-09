@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="Restaurant Mall" />
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='restaurantStyles.css')}}">
+   </head>
+   <body>
+      <div id="navBar">
+         <p><a href="/">home</a></p>
+         <p><a href="about.html">about</a></p>
+         <p><a href="donate.html">support</a></p>
+      </div>
+      <div id="contentWrapper">
+         {% with messages = get_flashed_messages() %}
+            {% if messages %}
+               <ul class="flash">
+                  {% for message in messages %}
+                     <li><strong>{{ message }}</strong></li>
+                  {% endfor %}
+               </ul>
+            {% endif %}
+         {% endwith %}
+         <p class="identify">The following restaurants are in our database: </p>
+
+         {% for r in restaurants %}
+
+         <div class="menuItem">
+            <h2>{{r.name}}</h2>
+            <div class="phone">phone:<br />{{r.phone}}</div>
+            <div class="address">address:<br />{{r.address}}</div>
+            <p>
+               <a class="viewMenu" href="{{url_for('viewMenu', restaurant_id = r.id)}}">view menu</a>
+            </p>
+            <p>
+               <a href="{{url_for('editRestaurant', restaurant_id=r.id)}}">edit</a>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <a href="{{url_for('deleteRestaurant', restaurant_id=r.id)}}">delete</a>
+            </p>
+            <br />
+         </div>
+         {% endfor %}
+         <p>
+            <a style="font-size:150%" href="{{url_for('addRestaurant')}}">-Add a new restaurant-</a>
+         </p>
+      </div>
+   </body>
+</html>

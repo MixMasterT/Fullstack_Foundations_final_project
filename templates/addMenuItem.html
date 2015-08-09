@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="Restaurant Mall" />
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='restaurantStyles.css')}}">
+   </head>
+   <body>
+      <div id="navBar">
+         <p><a href="/">home</a></p>
+         <p><a href="about.html">about</a></p>
+         <p><a href="donate.html">support</a></p>
+      </div>
+      <div id="contentWrapper">
+         <p class="identify">Fill in the form, and click 'submit' to add a new menu item for the {{restaurant.name}}.</p>
+
+         <div class="form">
+            <form action="{{ url_for('addMenuItem', restaurant_id = restaurant.id)}}" method='POST'>
+               <p class="menuItem">Enter the Item's name: <input type="text" name="item_name" placeholder="menu item's name" /></p>
+               <p class="menuItem">course: <input type="text" name="item_course" placeholder="course, such as 'appetizer' or 'entree'" /></p>
+               <p class="menuItem">price: <input type="text" name="item_price" placeholder="price of item" /></p>
+               <p class="menuItem">description: <input type="textarea" name="item_description" placeholder="describe the item..." /></p>
+               <br /><br />
+               <input type="submit" value="submit" />
+            </form>
+         </div>
+      </div>
+   </body>
+</html>
